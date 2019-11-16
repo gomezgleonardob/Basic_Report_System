@@ -1,0 +1,404 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>KIVY</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/atom-one-light.css">
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="plugin/fontawesome/css/all.min.css" />
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="all" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section class="center" style="font-size: 32px;">
+          <h1>KIVY</h1>
+          <h2>DESARROLLO DE APLICACIONES PARA ANDROID CON PYTHON</h2>
+        </section>
+
+        <section style="font-size: 32x;"> 
+          <h1 class="fragment">¿ QUÉ ES KIVY ?</h1>
+          <ul>
+            <li class="fragment">Es una librería escrita en Python para desarrollo de aplicaciones multiplataforma.</li>
+            <li class="fragment">Desarrollado utilizando Python y Cython.</li>
+            <li class="fragment" >Se basa en OpenGL ES 2.</li>
+            <img class="fragment" src="img/os.png" width="500" style="float: center;"/>
+          </ul>
+        </section>
+
+        <section style="font-size: 32px;">
+          <h1>¿PORQUÉ KIVY?</h1>
+          <ul>
+            <li class="fragment">Soporte de Multitouch.</li>
+            <li class="fragment">Uso de API OpenGL.</li>
+            <li class="fragment">Empaquetación ANDROID/IOS</li>
+            <li class="fragment">Multiplataforma</li>
+            <li class="fragment">Licencia MIT</li>
+          </ul>
+        </section>
+
+          <section style="font-size: 32px;">
+              <h1>INSTALACIÓN DE KIVY</h1>
+             
+              <p> En el sistema Operativo Windows estamos usando Anaconda como gestor de paquetes , los pasos para instalar 
+               Kivy</p>
+
+                  <pre>
+                      <code class="lhpython3" data-trim >
+                """ Buscar el paquete de Kivy desde Conda  """         
+                anaconda search -t conda kivy
+                
+     
+                """ Instalar el paquete de Kivy desde Conda   """   
+                #Instalar  Kivy con las  Dependencias
+                conda install -c conda-forge kivy
+                conda install -c conda-forge/label/cf201901 kivy
+              </code>
+            </pre>
+            <pre>
+                <code class="lhpython3" data-trim >
+                  """ Instalación desde Pip """
+                python -m pip install docutils pygments pypiwin32 
+                python -m pip install kivy.deps.sdl2 kivy.deps.glew
+                python -m pip install kivy.deps.gstreamer
+                python -m pip install kivy
+              </code>    
+            </pre>
+      </section>
+
+     <section style="font-size: 32px;">
+     <h1>IMPORTACIÓN DE LA LIBRERÍA KIVY</h1>
+    <p alignment="justify"> Una vez instalada la librería Kivy aprenderemos como agregarla a nuestro proyecto. Abriremos el editor o ide que hayamos usado para crear los programas de Python  </p>
+            <code class="lhpython3" data-trim >
+             #Especificamos la version mínima de Kivy
+              import kivy
+              kivy.require(‘1.10.0’)
+
+              #Importamos la librería con la clase base App
+              from kivy.app import App
+            
+              </code>   
+       
+    </section>
+             
+  <section style="font-size: 32px;">
+         <h1>EXPLICACIÓN</h1>
+         <pre>
+            <code class="lhpython3" data-trim >
+
+      /* Importamos Kivy* /
+        import kivy
+        kivy.require(‘1.10.0’)22 PYTHON.
+        from kivy.app import App
+
+      /*El uix.button es la sección que contiene los elementos de la interfaz de
+       usuario, como diseños y widgets que se desea mostrar */
+       from kivy.uix.button import Label
+
+      /* Aquí es donde estamos deniendo la clase base de nuestra aplicación Kivy.
+      Solo deberías necesitar cambiar el nombre de su aplicación MyApp en esta línea:*/
+      class MiAplicacion(App):
+
+       /*Función que inicializa y retorna el widget*/
+       def build(self):
+      return Label(text=’Hola Mundo’)
+
+      /*La clase MyApp se inicializa y se llama a su método run (). Esto inicializa y comienza nuestro Kivy*/
+
+      if __name__ == “__main__”:
+      MiAplicacion().run()
+            </code>
+          </pre>  
+        </section>
+
+
+        <section style="font-size: 32px;">
+            <h1>KIVY BASE TOUCH.APP</h1>
+                 <p alignment="justify"> Este módulo contiene la funcionalidad básica de Kivy  </p>
+          
+       
+        </section>
+             
+
+
+             
+    <section style="font-size: 32px;">
+          <h1>LENGUAJE KVLANG</h1>
+          <p alignment="justify"> Lenguaje de marcación definido por los creadores de Kivy se usa para la construcción de interfaces gráficas,su proposito es separar la interfaz del usuario de la lógica de negocio  </p>
+                    <p alignment="justify"> Nuestro archivo.kv debe llevar el mismo nombre de la clase principal de Python archivo.py en minúsculas. </p>
+      </pre>
+    </section>
+
+    <section style="font-size: 32px;">
+          <h1>LENGUAJE KVLANG</h1>
+          <p alignment="justify"> Lenguaje de marcación definido por los creadores de Kivy se usa para la construcción de interfaces gráficas,su proposito es separar la interfaz del usuario de la lógica de negocio  </p>
+   
+
+         <b>Reglas</b>
+     <p alignment="justify">    Una regla es similar a una regla CSS. Una regla se aplica a widgets específicos (o clases de ellos) en su árbol de widgets y los modifica de cierta manera. Puede utilizar reglas para especificar el comportamiento interactivo o utilizarlas para añadir representaciones gráficas de los widgets a los que se aplican. Puede dirigir una clase específica de widgets (similar al concepto CSS de una clase) utilizando el atributo cls (por ejemplo, cls=MyTestWidget).</p>
+    <b> Un Widget Raíz</b>
+     <p alignment="justify">    Puede utilizar el idioma para crear toda la interfaz de usuario. Un archivo kv debe contener sólo un widget raíz como máximo</p>
+
+
+         </pre>
+    </section>
+  
+
+        <section style="font-size: 32px;">
+          <h1>ESTRUCTURA DE  KVLANG</h1>
+           <ul>
+         
+          </ul>
+           
+      </pre>
+    </section>
+
+
+        <section style="font-size: 32px;">
+          <h1>COMPONENTES BÁSICOS DE KIVY</h1>
+          <ul>
+          <li class="fragment">WIDGET</li>
+          <li class="fragment">LAYOUTS</li>
+          </ul>
+        </section>
+
+
+
+        <section style="font-size: 32px;">
+          <h1>WIDGET</h1>
+      <p alignment="justify">   Un widget es el componente básico de las interfaces en Kivy. Una interfaz
+de usuario generalmente tiene muchos elementos, como cuadros de texto de entrada,
+etiquetas, listas desplegables, botones, botones de radio, etc. Estos elementos se
+denominan widgets en Kivy<p>
+        </section>
+
+
+      <section style="font-size: 32px;">
+                <h1>TIPOS DE EVENTO</h1>
+                
+                <p alignment="center">Los widgets crean tres eventos<p>
+             <ul>
+                  <li class="fragment">Los tres estados en los que puede estar un contacto son:
+
+                    <li class="fragment">Abajo:Un toque  se produce una sola vez, en el mismo momento en que aparece por primera vez.</li>
+               
+                      <li class="fragment">Mover:n contacto puede estar en este estado por un tiempo potencialmente ilimitado. Un toque no tiene que estar en este estado durante su vida. Un'Movimiento' ocurre cada vez que la posición 2D de un toque cambia.</li>
+                        
+                      <li class="fragment">Arriba:Un toque sube a lo sumo una vez, o nunca. En la práctica, casi siempre recibirás un evento ascendente porque nadie va a mantener un dedo en la pantalla</li>
+        </ul>
+      </section>
+
+
+
+      <section style="font-size: 32px;">
+      <h1>LAYOUTS</h1>
+      <p alignment="justify"> El layout es un contenedor es donde colocamos los elementos de una aplicación o sitio
+web, los contenedores no ayudaran en el ordenamiento adecuado de los elementos
+que una aplicación puede contener grácamente.  </p>
+      <p alignment="justify"> Estos se usan para organizar los widgets ,ejemplos de ello son los diseños de cuadrícula o los diseños de caja.  </p>
+   
+          
+    </section>  
+
+   <section style="font-size: 32px;">
+      <h1>BOXLAYOUT</h1>
+      <p alignment="justify"> Se usan para organizar los widgets ,ejemplos de ello son los diseños de cuadrícula o los diseños de caja.  </p>
+   
+          
+    </section>  
+
+
+ <section style="font-size: 32px;">
+      <h1>FLOATLAYOUT</h1>
+      <p alignment="justify"> Este es uno de los contenedores más utilizados, gracias a la gran ventaja que
+tenemos de poner elementos en el lugar que más nos guste. Ejemplo </p>
+   
+          
+    </section>  
+
+<section style="font-size: 32px;">
+      <h1>GRIDLAYOUT</h1>
+      <p alignment="center"> Es un layout que agrega los hijos en una matriz tomando el espacio disponible y lo divide en columnas y filas, luego añade widgets a las "celdas" resultantes. tenemos que denir por lo menos su dimensión, si
+queremos que tenga una columna o más de igual forma que las las, puedes ver este
+layout como una hoja de cálculo donde cada elemento toma su lugar de acuerdo al
+orden que los agregue  </p>
+   
+          
+    </section>  
+
+<section style="font-size: 32px;">
+      <h1>GRIDLAYOUT</h1>
+      <img  class="fragment" alignment = "center "width="75%" height="auto" src="img/gridlayout.gif" alt="Arquitectura Kivy"></img>
+    </section>  
+
+          
+
+
+
+
+<section style="font-size: 32px;">
+      <h1>RELATIVELAYOUT</h1>
+      <p alignment="justify">  </p>
+   
+          
+    </section>  
+
+<section style="font-size: 32px;">
+      <h1>STACKLAYOUT</h1>
+      <p alignment="justify"> a.  </p>
+   
+          
+
+
+    </section>  
+
+
+<section style="font-size: 32px;">
+      <h1>UX</h1>
+      <p alignment="justify"> Denominada User Experience.  </p>
+   
+          
+    </section>  
+
+
+
+
+    
+
+   
+
+      <section style="font-size: 32px;">
+            <h1>ARQUITECTURA DE KIVY</h1>
+            <p alignment="justify"> A continuación detallaremos como está compuesta la aplicación creada en Kivy </p>
+            <ul>
+              <li class="fragment">Core Providers</li>
+              <li class="fragment">Graphics</li>
+              <li class="fragment">Core</li>
+              <li class="fragment">UIX</li>
+              <li class="fragment">Modules</li>
+              <li class="fragment">Events</li>
+              <img  class="fragment" alignment = "center "width="75%" height="auto" src="img/arch.png" alt="Arquitectura Kivy"></img>
+            </ul>
+          </section>
+
+               <section style="font-size: 32px;">
+                <h1>CORE PROVIDERS</h1>
+                <p alignment="justify">Los proveedores de Servicio en Kivy son 2: Proveedores Principales y Proveedores de Entrada</p>
+                <p alignment="justify">Las etiquetas y los botones utilizan las mismas propiedades de configuración.</p>
+                </section>
+        
+                <section style="font-size: 32px;">
+                <h1>GRAFICOS</h1>
+                <p alignment="justify"
+                 Kivy emite comandos de dibujo acelerados por hardware utilizando la GPU del celular mediante OpenGL.La API de gráficos que te permite dibujar cosas  simples  por ejemplo: Circulos, Rectángulo.
+                    
+                </p>
+                </section>
+
+                <section style="font-size: 32px;">
+                <h1>CORE</h1>
+                <p alignment="justify">Proporciona código para realizar tareas comunes</p>
+                <ul>
+                    <li class="fragment">Reloj:Programar eventos similar a un cron </li>
+                    <li class="fragment">Cache:Si necesitas almacenar en caché algo que usas a menudo</li>
+                    <li class="fragment">Detección de gestos  Puede utilizar para detectar varios tipos de trazos</li>
+                </ul>
+                </section>
+            
+            
+
+        <section style="font-size: 32px;">
+          <h1>CICLO DE VIDA DE LA APLICACIÓN</h1>
+          <br> A continuación detallaremos el ciclo de vida de una aplicación creada en Kivy </br>
+          <img  class="fragment" alignment = "center "width="75%" height="auto" src="img/cicle.png" alt="Arquitectura Kivy"></img>
+        </section>
+
+      
+     
+
+
+          <section style="font-size: 28px;">
+          <h1>BUILDOZER</h1>
+             <p alignment ="justify"> 
+               Buildozer es un paquete escrito en Python que permite empaquetar la aplicación escrita con Kivy y generar el apk.
+              
+              </p>
+               <pre>
+                  <code class="lhpython3" data-trim >
+
+                      #Instalación de Buildozer
+                      pip install buildozer
+                      buildozer android init
+
+                  </pre>
+                         </code>
+  
+             </p>
+          </section> 
+
+
+          <section style="font-size: 28px;">
+              <h1>USO DE BUILDOZER</h1>.
+                   <pre>
+                      <code class="lhpython3" data-trim >
+    
+                      #Apk para depuración
+                      buildozer android debug
+
+                      #Apk para release
+                      buildozer android release
+
+                      </pre>
+                             </code>
+      
+              </section> 
+
+          <footer class="footer fragment">
+            
+          </footer>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        history: true,
+        center: false,
+        maxScale: 0.7,
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
