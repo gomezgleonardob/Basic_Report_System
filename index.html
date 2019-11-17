@@ -38,23 +38,23 @@
         </section>
 
         <section style="font-size: 32x;"> 
-          <h1 class="fragment">¿ QUÉ ES KIVY ?</h1>
+          <h1 >¿ QUÉ ES KIVY ?</h1>
           <ul>
-            <li class="fragment">Es una librería escrita en Python para desarrollo de aplicaciones multiplataforma.</li>
-            <li class="fragment">Desarrollado utilizando Python y Cython.</li>
-            <li class="fragment" >Se basa en OpenGL ES 2.</li>
-            <img class="fragment" src="img/os.png" width="500" style="float: center;"/>
+            <li >Es una librería escrita en Python para desarrollo de aplicaciones multiplataforma.</li>
+            <li >Desarrollado utilizando Python y Cython.</li>
+            <li  >Se basa en OpenGL ES 2.</li>
+            <img  src="img/os.png" width="500" style="float: center;"/>
           </ul>
         </section>
 
         <section style="font-size: 32px;">
           <h1>¿PORQUÉ KIVY?</h1>
           <ul>
-            <li class="fragment">Soporte de Multitouch.</li>
-            <li class="fragment">Uso de API OpenGL.</li>
-            <li class="fragment">Empaquetación ANDROID/IOS</li>
-            <li class="fragment">Multiplataforma</li>
-            <li class="fragment">Licencia MIT</li>
+            <li >Soporte de Multitouch.</li>
+            <li >Uso de API OpenGL.</li>
+            <li >Empaquetación ANDROID/IOS</li>
+            <li >Multiplataforma</li>
+            <li >Licencia MIT</li>
           </ul>
         </section>
 
@@ -86,24 +86,60 @@
               </code>    
             </pre>
       </section>
-
-     <section style="font-size: 32px;">
-     <h1>IMPORTACIÓN DE LA LIBRERÍA KIVY</h1>
-    <p alignment="justify"> Una vez instalada la librería Kivy aprenderemos como agregarla a nuestro proyecto. Abriremos el editor o ide que hayamos usado para crear los programas de Python  </p>
-            <code class="lhpython3" data-trim >
-             #Especificamos la version mínima de Kivy
-              import kivy
-              kivy.require(‘1.10.0’)
-
-              #Importamos la librería con la clase base App
-              from kivy.app import App
-            
-              </code>   
-       
-    </section>
              
   <section style="font-size: 32px;">
-         <h1>EXPLICACIÓN</h1>
+         <h1>KIVY RUN BASE TOUCH APP</h1>
+  <p> Es una función principal estática que inicia el bucle de la aplicación.que tiene los siguientes parametros</p>
+
+    <p>  <b>Parámetros</b>        <p> 
+   <p>  </b> `empty` </b> necesitas al menos una
+        widget de entrada<p> 
+
+   <p>  </b> `widget` </b>  Si sólo pasa un widget, se creará una ventana de MTWindow
+        y tu widget se añadirá a la ventana como root<p> 
+ </section>
+            
+
+  <section style="font-size: 32px;">
+         <h1>KIVY RUN BASE TOUCH APP</h1>
+    <p>  <b>Parámetros</b>       <p> 
+  <p>  </b> `slave` </b>No hay evento planificado  <p> 
+
+  <p>  </b> `widget + slave` </b> No hay evento planificado  , este será tu trabajo pero intentam
+ conseguir la ventana (debe ser creado por usted de antemano) y añadir el widget.
+Muy útil para la incrustación de Kivy en otro toolkit. <p> 
+
+ </section> 
+
+<section style="font-size: 32px;">
+         <h1>ORIENTACIÓN</h1>
+              <p>  Es la forma que se puede presentar la aplicación ya sea horizontal o vertical </p>
+
+        <h1>PADDING</h1>
+              <p> el espacio de relleno requerido por todos los lados de un elemento ,en este caso un widget</p>
+
+
+ <img  src="img/padding.png" width="500" style="float: center;"/>
+ </section>
+
+<section style="font-size: 32px;">
+       <h1>SIZE_HINT</h1>
+              <p>   Es una tupla de valores para manejar los tamaños de widgets e indica el tamaño relativo al tamaño del layout  en lugar de un tamaño absoluto (en píxeles/puntos/cm/etc).     </p>
+ <img  src="img/size_hint.png" width="500" style="float: center;"/>
+<p>El porcentaje se especifica como un número de punto flotante en el rango 0-1. Por ejemplo, 0.5 es 50%, 1 es 100%.</p>
+ <img  src="img/size_code.png" width="500" style="float: center;"/>
+ </section>
+
+<section style="font-size: 32px;">
+         <h1> POS_HINT</h1>
+           <p> Es una tupla de valores para manejar los tamaños de widgets  donde los valores sean relativos al tamaño/posición del padre. Así que aquí, para b1 x será la x del padre, y center_y estará en el medio entre y y top.</p>
+
+ <img  src="img/pos_code.png" width="500" style="float: center;"/>
+
+ </section>
+  <section style="font-size: 32px;">
+         <h1>IMPORTACIÓN DE LA LIBRERÍA KIVY</h1>
+        
          <pre>
             <code class="lhpython3" data-trim >
 
@@ -124,24 +160,14 @@
        def build(self):
       return Label(text=’Hola Mundo’)
 
-      /*La clase MyApp se inicializa y se llama a su método run (). Esto inicializa y comienza nuestro Kivy*/
+      /*La clase MyApp se inicializa y se llama a su método run (). 
+      Esto inicializa y comienza nuestro Kivy*/
 
       if __name__ == “__main__”:
       MiAplicacion().run()
             </code>
           </pre>  
         </section>
-
-
-        <section style="font-size: 32px;">
-            <h1>KIVY BASE TOUCH.APP</h1>
-                 <p alignment="justify"> Este módulo contiene la funcionalidad básica de Kivy  </p>
-          
-       
-        </section>
-             
-
-
              
     <section style="font-size: 32px;">
           <h1>LENGUAJE KVLANG</h1>
@@ -167,9 +193,19 @@
 
         <section style="font-size: 32px;">
           <h1>ESTRUCTURA DE  KVLANG</h1>
-           <ul>
-         
+
+    <p> Hay 3 tipos de palabras claves específicas en kv: </p>
+
+       <ul>
+            <li >app: Se refiere a la instancia de la aplicación</li>
+            <li >root: Es el widget base.</li>
+            <li >self: Se refiere al widget actual</li>
+        
           </ul>
+
+
+
+  <img  src="img/kvlang.png" width="500" style="float: center;"/>
            
       </pre>
     </section>
@@ -178,8 +214,8 @@
         <section style="font-size: 32px;">
           <h1>COMPONENTES BÁSICOS DE KIVY</h1>
           <ul>
-          <li class="fragment">WIDGET</li>
-          <li class="fragment">LAYOUTS</li>
+          <li >WIDGET</li>
+          <li >LAYOUTS</li>
           </ul>
         </section>
 
@@ -199,106 +235,245 @@ denominan widgets en Kivy<p>
                 
                 <p alignment="center">Los widgets crean tres eventos<p>
              <ul>
-                  <li class="fragment">Los tres estados en los que puede estar un contacto son:
+ 
 
-                    <li class="fragment">Abajo:Un toque  se produce una sola vez, en el mismo momento en que aparece por primera vez.</li>
+                    <li >Abajo:Un toque  se produce una sola vez, en el mismo momento en que aparece por primera vez.</li>
                
-                      <li class="fragment">Mover:n contacto puede estar en este estado por un tiempo potencialmente ilimitado. Un toque no tiene que estar en este estado durante su vida. Un'Movimiento' ocurre cada vez que la posición 2D de un toque cambia.</li>
+                      <li >Mover:Un contacto puede estar en este estado por un tiempo potencialmente ilimitado. Un toque no tiene que estar en este estado durante su vida. Un'Movimiento' ocurre cada vez que la posición 2D de un toque cambia.</li>
                         
-                      <li class="fragment">Arriba:Un toque sube a lo sumo una vez, o nunca. En la práctica, casi siempre recibirás un evento ascendente porque nadie va a mantener un dedo en la pantalla</li>
+                      <li >Arriba:Un toque sube a lo sumo una vez, o nunca. En la práctica, casi siempre recibirás un evento ascendente porque nadie va a mantener un dedo en la pantalla</li>
         </ul>
       </section>
+
+     <section style="font-size: 32px;">
+    <h1>LABEL</h1>
+      <p alignment="justify">   Un widget es el componente básico de las interfaces en Kivy se utiliza para mostrar texto<p>
+
+<img  src="img/label.png" width="500" style="float: center;"/>
+        </section>
+
+
+     <section style="font-size: 32px;">
+          <h1>BOTON</h1>
+      <p alignment="justify"> Es un label con las acciones asociadas que se activan cuando se pulsa el botón (o se suelta después de un clic/toque)<p>
+
+    <img  src="img/boton.png" width="500" style="float: center;"/>
+        </section>
+
+ 
+
+
+        
+ <section style="font-size: 32px;">
+  <h1>ACTION BAR</h1>
+<p>Es similar  de acción de Android, donde los elementos se apilan horizontalmente. Cuando el área se vuelve pequeña, los widgets se mueven al área de ActionOverflow</p>
+
+
+<img  src="img/action.png" width="500" style="float: center;"/>
+
+
+
+         </section>
 
 
 
       <section style="font-size: 32px;">
+      <h1>ACTION BAR</h1>
+      <img   alignment = "center "height="100px" "width="100px" height="auto" src="img/actionbar.png" alt="Arquitectura Kivy"></img>
+    </section>  
+
+
+     <section style="font-size: 32px;">
+  <h1>CHECK BOX</h1>
+<p>Es similar  de acción de Android, donde los elementos se apilan horizontalmente. Cuando el área se vuelve pequeña, los widgets se mueven al área de ActionOverflow</p>
+
+
+<p></p>
+<img  src="img/check.png" "height="50px" "width="50px" />
+
+
+         </section>
+      <section style="font-size: 32px;">
+      <h1>CHECKBOX</h1>
+      <img   alignment = "center "height="300px" "width="300px" height="auto" src="img/checkbox.png" alt="Arquitectura Kivy"></img>
+    </section>  
+
+
+
+     <section style="font-size: 32px;">
+  <h1>PROGRESS BAR</h1>
+<p>
+se utiliza para visualizar el progreso de alguna tarea. Actualmente sólo se admite el modo horizontal: el modo vertical aún no está disponible.</p>
+
+
+<p></p>
+<img  src="img/progress.png" width="500" style="float: center;"/>
+
+         </section>
+
+        <section style="font-size: 32px;">
+      <h1>PROGRESS BAR</h1>
+      <img   alignment = "center "width="75%" height="auto" src="img/progressbar.jpg" alt="Arquitectura Kivy"></img>
+    </section>  
+
+
+         </section>
+
+
+ <section style="font-size: 32px;">
+    <h1>SCATTER</h1>
+      <p alignment="justify">  Se utiliza para crear widgets interactivos que se pueden girar y escalar con dos o más dedos en un sistema multitáctil,
+      <p>
+      
+       <img  src="img/scattercod.png" width="500" style="float: center;"/>
+        </section>
+
+
+        <section style="font-size: 32px;">
+      <h1>SCATTER</h1>
+      <img   alignment = "center "width="75%" height="auto" src="img/scatter.gif" alt="Arquitectura Kivy"></img>
+    </section>  
+
+  <section style="font-size: 32px;">
+    <h1>CANVAS</h1>
+      <p alignment="justify"> La representación gráfica de un widget está representada con Kivy Canvas. Puedes dibujar lo   lienzo (canvas).    <p>
+       <img   alignment = "center "height="600px" "width="600px" height="auto" src="img/canvas.png" alt="Arquitectura Kivy"></img>
+
+
+        </section>
+
+  <section style="font-size: 32px;">
+      <h1>CANVAS</h1>
+      <img   alignment = "center "width="75%" height="auto" src="img/canvas_result.png" alt="Arquitectura Kivy"></img>
+    </section>  
+        
+  
+  <section style="font-size: 32px;">
+    <h1>AYSINIMAGE</h1>
+      <p alignment="justify"> Se utiliza para hacer la carga imagen desde un recurso externo (URL externa de la imagen)   <p>
+       <img   alignment = "center "height="100px" "width="100px" height="auto" src="img/async.png" alt="Arquitectura Kivy"></img>
+        </section>
+          
+   <section style="font-size: 32px;">
+    <h1>TEXTINPUT</h1>
+      <p alignment="justify"> Proporciona un cuadro para texto plano editable.
+
+Unicode, multilínea, navegación por cursor, selección y funciones de portapapeles son compatibles.   <p>
+       <img   alignment = "center "height="200px" "width="200px" height="auto" src="img/textinput.png" alt="Arquitectura Kivy"></img>
+        </section>
+
+<section style="font-size: 32px;">
+      <h1>TEXTINPUT</h1>
+      <img   alignment = "center "width="75%" height="auto" src="img/textinput-multi.jpg" alt="Arquitectura Kivy"></img>
+    </section> 
+
+   <section style="font-size: 32px;">
+    <h1>SLIDER</h1>
+      <p alignment="justify">
+ES una barra de desplazamiento. Soporta orientaciones horizontales y verticales, valores mínimos/máximos y un valor por defecto.   <p>
+       <img   alignment = "center "height="100px" "width="100px" height="auto" src="img/slider.png" alt="Arquitectura Kivy"></img>
+        </section>
+
+<section style="font-size: 32px;">
+      <h1>SLIDER</h1>
+      <img   alignment = "center "width="75%" height="auto" src="img/slider.jpg" alt="Arquitectura Kivy"></img>
+    </section> 
+
+    <section style="font-size: 32px;">
       <h1>LAYOUTS</h1>
       <p alignment="justify"> El layout es un contenedor es donde colocamos los elementos de una aplicación o sitio
 web, los contenedores no ayudaran en el ordenamiento adecuado de los elementos
 que una aplicación puede contener grácamente.  </p>
       <p alignment="justify"> Estos se usan para organizar los widgets ,ejemplos de ello son los diseños de cuadrícula o los diseños de caja.  </p>
-   
-          
-    </section>  
+        </section>
+
 
    <section style="font-size: 32px;">
       <h1>BOXLAYOUT</h1>
-      <p alignment="justify"> Se usan para organizar los widgets ,ejemplos de ello son los diseños de cuadrícula o los diseños de caja.  </p>
+      <p alignment="justify"> En este layout puedes agregar varios elementos los cuales se ordenan
+dependiendo del tamaño de cada elemento dentro del mismo , el layout puede tener la orientación horizontal o vertical</p>
    
-          
+          <img alignment = "center "width="75%" height="auto" src="img/boxlayout_code.png" alt="Arquitectura Kivy"></img>
+    </section>  
+
+
+    <section style="font-size: 32px;">
+      <h1>BOXLAYOUT</h1>
+      <img   alignment = "center "width="75%" height="auto" src="img/boxlayout.gif" alt="Arquitectura Kivy"></img>
     </section>  
 
 
  <section style="font-size: 32px;">
       <h1>FLOATLAYOUT</h1>
-      <p alignment="justify"> Este es uno de los contenedores más utilizados, gracias a la gran ventaja que
-tenemos de poner elementos en el lugar que más nos guste. Ejemplo </p>
-   
+      <p alignment="justify">En este layout puedes agregar varios elementos los cuales se ordenan
+      como nosotros deseemos .FloatLayout hereda las propiedades pos_hint y size_hint de los widgets que están contenidos dentro de él.</p>
+
+     <img   alignment = "center "width="75%" height="auto" src="img/floatlayout.png" alt="ç"></img>
           
     </section>  
 
 <section style="font-size: 32px;">
+      <h1>FLOATLAYOUT</h1>
+      <img   alignment = "center "width="75%" height="auto" src="img/floatlayout.gif" alt="Arquitectura Kivy"></img>
+    </section> 
+
+
+<section style="font-size: 32px;">
       <h1>GRIDLAYOUT</h1>
-      <p alignment="center"> Es un layout que agrega los hijos en una matriz tomando el espacio disponible y lo divide en columnas y filas, luego añade widgets a las "celdas" resultantes. tenemos que denir por lo menos su dimensión, si
-queremos que tenga una columna o más de igual forma que las las, puedes ver este
+      <p alignment="center"> Es un layout que agrega los widgets en una matriz tomando el espacio disponible y lo divide en columnas y filas, luego añade widgets a las "celdas" resultantes. tenemos que de unir por lo menos su dimensión, si
+queremos que tenga una columna o más de igual forma , se  puedes ver este
 layout como una hoja de cálculo donde cada elemento toma su lugar de acuerdo al
 orden que los agregue  </p>
-   
+     <img   alignment = "center "width="75%" height="auto" src="img/gridlayout.png" alt="ç"></img>
           
     </section>  
 
 <section style="font-size: 32px;">
       <h1>GRIDLAYOUT</h1>
-      <img  class="fragment" alignment = "center "width="75%" height="auto" src="img/gridlayout.gif" alt="Arquitectura Kivy"></img>
+      <img   alignment = "center "width="75%" height="auto" src="img/gridlayout.gif" alt="Arquitectura Kivy"></img>
     </section>  
 
-          
-
-
+         
 
 
 <section style="font-size: 32px;">
       <h1>RELATIVELAYOUT</h1>
-      <p alignment="justify">  </p>
+      <p alignment="justify"> Se comporta igual que la FloatLayout normal, excepto que sus widgets  están posicionados en relación con la app  </p>
+      <img   alignment = "center "height="400px" "width="400px" src="img/stacklayout.jpg" alt="Arquitectura Kivy"></img>
    
-          
     </section>  
 
+
+<section style="font-size: 32px;">
+      <h1>RELATIVELAYOUT</h1>
+      <img   alignment = "center "height="400px" "width="400px" height="auto" src="img/relativelayout.jpg" alt="Arquitectura Kivy"></img>
+    </section>  
+
+         
 <section style="font-size: 32px;">
       <h1>STACKLAYOUT</h1>
-      <p alignment="justify"> a.  </p>
-   
-          
-
+      <p alignment="justify">Es un layout organiza a los widgtes en forma vertical u horizontal, tantas como pueda caber en el diseño. El tamaño de los widgets individuales no tiene que ser uniforme. </p>
+         <img   alignment = "center "height="50%" "width="50%" height="auto" src="img/stacklayout.png" alt="Arquitectura Kivy"></img>
 
     </section>  
 
-
-<section style="font-size: 32px;">
-      <h1>UX</h1>
-      <p alignment="justify"> Denominada User Experience.  </p>
-   
-          
+    <section style="font-size: 32px;">
+      <h1>STACKLAYOUT</h1>
+      <img   alignment = "center "width="75%" height="auto" src="img/stacklayout.gif" alt="Arquitectura Kivy"></img>
     </section>  
 
-
-
-
-    
-
-   
 
       <section style="font-size: 32px;">
             <h1>ARQUITECTURA DE KIVY</h1>
-            <p alignment="justify"> A continuación detallaremos como está compuesta la aplicación creada en Kivy </p>
+            <p alignment="center"> A continuación detallaremos como está compuesta la aplicación creada en Kivy </p>
             <ul>
-              <li class="fragment">Core Providers</li>
-              <li class="fragment">Graphics</li>
-              <li class="fragment">Core</li>
-              <li class="fragment">UIX</li>
-              <li class="fragment">Modules</li>
-              <li class="fragment">Events</li>
-              <img  class="fragment" alignment = "center "width="75%" height="auto" src="img/arch.png" alt="Arquitectura Kivy"></img>
+              <li >Core Providers</li>
+              <li >Graphics</li>
+              <li >Core</li>
+              <li >UIX</li>
+              <li >Modules</li>
+              <li >Events</li>
+              <img   alignment = "center "width="75%" height="auto" src="img/arch.png" alt="Arquitectura Kivy"></img>
             </ul>
           </section>
 
@@ -310,7 +485,7 @@ orden que los agregue  </p>
         
                 <section style="font-size: 32px;">
                 <h1>GRAFICOS</h1>
-                <p alignment="justify"
+                <p alignment="justify">
                  Kivy emite comandos de dibujo acelerados por hardware utilizando la GPU del celular mediante OpenGL.La API de gráficos que te permite dibujar cosas  simples  por ejemplo: Circulos, Rectángulo.
                     
                 </p>
@@ -320,9 +495,9 @@ orden que los agregue  </p>
                 <h1>CORE</h1>
                 <p alignment="justify">Proporciona código para realizar tareas comunes</p>
                 <ul>
-                    <li class="fragment">Reloj:Programar eventos similar a un cron </li>
-                    <li class="fragment">Cache:Si necesitas almacenar en caché algo que usas a menudo</li>
-                    <li class="fragment">Detección de gestos  Puede utilizar para detectar varios tipos de trazos</li>
+                    <li >Reloj:Programar eventos similar a un cron </li>
+                    <li >Cache:Si necesitas almacenar en caché algo que usas a menudo</li>
+                    <li >Detección de gestos  Puede utilizar para detectar varios tipos de trazos</li>
                 </ul>
                 </section>
             
@@ -331,11 +506,31 @@ orden que los agregue  </p>
         <section style="font-size: 32px;">
           <h1>CICLO DE VIDA DE LA APLICACIÓN</h1>
           <br> A continuación detallaremos el ciclo de vida de una aplicación creada en Kivy </br>
-          <img  class="fragment" alignment = "center "width="75%" height="auto" src="img/cicle.png" alt="Arquitectura Kivy"></img>
+          <img   alignment = "center "width="75%" height="auto" src="img/cicle.png" alt="Arquitectura Kivy"></img>
         </section>
 
       
-     
+      
+
+       <section style="font-size: 28px;">
+          <h1>APLICACION ANDROID</h1>
+             <p alignment ="justify"> 
+              Crearemos un pequeño editor de texto
+       
+La aplicación se compone de 2 archivos Plantilla.Kv que contiene 2 archivos Plantilla.kv y EditorTexto.py
+             </p>
+
+   <ul>
+                    <li >Plantilla.kv es toda la interfaz de usuario </li>
+                    <li >EditorTexto es contiene toda la lógica para interactuar con los archivos</li>
+                </ul>
+
+          </section> 
+
+
+
+
+
 
 
           <section style="font-size: 28px;">
@@ -348,7 +543,7 @@ orden que los agregue  </p>
                   <code class="lhpython3" data-trim >
 
                       #Instalación de Buildozer
-                      pip install buildozer
+                     python -m  pip install buildozer
                       buildozer android init
 
                   </pre>
@@ -373,7 +568,26 @@ orden que los agregue  </p>
                              </code>
       
               </section> 
+          <section style="font-size: 28px;">
 
+
+          <h1>COMPILAR PARA ANDROID</h1>
+             <p alignment ="justify"> 
+               Buildozer es un paquete escrito en Python que permite empaquetar la aplicación escrita con Kivy y generar el apk.
+              
+              </p>
+               <pre>
+                  <code class="lhpython3" data-trim >
+
+                      #Instalación de Buildozer
+                      pip install buildozer
+                      buildozer android init
+
+                  </pre>
+                         </code>
+  
+             </p>
+          </section> 
           <footer class="footer fragment">
             
           </footer>

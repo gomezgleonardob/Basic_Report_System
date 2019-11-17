@@ -9,6 +9,16 @@
 	-webkit-print-color-adjust: exact;
 }
 
+<script>
+  if( window.location.search.match( /print-pdf/gi ) ) {
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'pdf.css'; // Notice: I changed the path
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  }
+</script>
+
 body {
 	margin: 0 auto !important;
 	border: 0;
